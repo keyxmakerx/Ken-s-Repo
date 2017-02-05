@@ -3,8 +3,10 @@
 date_1=''
 date_2=''
 
-while true; do
 read -p "Please Enter the Beggining Time. Exp. Aug 1 00:00:01 " date_1;
+
+read -p "Please Enter the Beggining Time. Exp. Aug 1 00:00:01 " date_2;
+
  while :
 do
     read -p "Is this Date correct? @date_1" choice
@@ -13,8 +15,7 @@ do
         n|no) echo "Try again"; exec $0;;
     esac
 done
-read -p "Please Enter the Beggining Time. Exp. Aug 1 00:00:01 " date_2;
-do
+ while :
     read -p "Is this Date correct? @date_2" choice
     case ${choice,,} in
         y|ye|yes) break;;
