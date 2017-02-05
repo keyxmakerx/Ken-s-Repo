@@ -25,4 +25,4 @@ while :
 done
 
 echo $date_1 , $date_2
-find /srv/log/mail - $(date +%s -d"$date_1") - $(date +%s -d"$date_2")
+find /srv/log/mail -mtime $(date +%s -d"$date_1") -mtime $(date +%s -d"$date_2")
