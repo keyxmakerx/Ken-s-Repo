@@ -1,16 +1,26 @@
 #!/bin/bash
 
-date_1=$1
-date_2=$2
+date_1=''
+date_2=''
 
-e_date_1=$( date -d"$date_1" +"%s" )
-e_date_2=$( date -d"$date_2" +"%s" )
-
-while IFS=, read dt skip
+while true; do
+read -p "Please Enter the Beggining Time. Exp. Aug 1 00:00:01 " date_1;
+ while :
 do
-        e_dt=$( date -d"$dt" +"%s" )
-        if [ $e_dt -ge $e_date_1 ] && [ $e_dt -le $e_date_2 ]
-        then
-                printf "${dt},${skip}\n"
-        fi
-done < infile
+    read -p "Is this Date correct? @date_1" choice
+    case ${choice,,} in
+        y|ye|yes) break;;
+        n|no) echo "Try again"; exec $0;;
+    esac
+done
+read -p "Please Enter the Beggining Time. Exp. Aug 1 00:00:01 " date_2;
+do
+    read -p "Is this Date correct? @date_2" choice
+    case ${choice,,} in
+        y|ye|yes) break;;
+        n|no) echo "Try again"; exec $0;;
+    esac
+done
+
+echo "@date_1 , @date_2"
+find . -mtime $(date +%s -d"Aug 10, 2013 23:59:59") -mtime $(date +%s -d"Aug 1, 2013 23:59:59")
