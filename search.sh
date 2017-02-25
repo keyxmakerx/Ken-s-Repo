@@ -16,4 +16,4 @@ echo $date_1 , $date_2 , $email
 
 
 
-./read_log_range.py $date_2  $date_1 /var/log/syslog  | grep $email 
+./read_log_range.py '$date_2'  '$date_1' /var/log/syslog  | grep $email 
